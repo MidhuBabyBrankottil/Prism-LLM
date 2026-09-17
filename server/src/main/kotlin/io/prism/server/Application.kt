@@ -24,7 +24,7 @@ import io.prism.storage.TraceRepository
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.slf4j.LoggerFactory
-import java.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 private val logger = LoggerFactory.getLogger("PrismLLM")
 
@@ -68,8 +68,8 @@ fun Application.module(customRepository: TraceRepository? = null) {
     }
 
     install(WebSockets) {
-        pingPeriod = Duration.ofSeconds(15)
-        timeout = Duration.ofSeconds(30)
+        pingPeriod = 15.seconds
+        timeout = 30.seconds
         maxFrameSize = Long.MAX_VALUE
         masking = false
     }

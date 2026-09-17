@@ -28,6 +28,12 @@ data class SimulationRequest(
     val prompt: String = "Summarize quarterly architecture review."
 )
 
+@Serializable
+data class SeedResponse(
+    val seeded: Int,
+    val status: String = "success"
+)
+
 fun Route.analyticsRoutes(
     repository: TraceRepository,
     engine: FinOpsAnalyticsEngine,
@@ -181,7 +187,7 @@ fun Route.analyticsRoutes(
             repository.save(anomalyTrace)
             count++
 
-            call.respond(HttpStatusCode.OK, mapOf("seeded" to count, "status" to "success"))
+            call.respond(HttpStatusCode.OK, SeedResponse(seeded = count))
         }
     }
 }

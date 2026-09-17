@@ -82,7 +82,8 @@ class SqliteTraceRepository(
                 ps.setInt(7, trace.totalTokens)
                 ps.setInt(8, trace.cachedTokens)
                 ps.setLong(9, trace.durationMs)
-                if (trace.timeToFirstTokenMs != null) ps.setLong(10, trace.timeToFirstTokenMs) else ps.setNull(10, java.sql.Types.INTEGER)
+                val ttft = trace.timeToFirstTokenMs
+                if (ttft != null) ps.setLong(10, ttft) else ps.setNull(10, java.sql.Types.INTEGER)
                 ps.setDouble(11, trace.estimatedCostUsd)
                 ps.setInt(12, trace.statusCode)
                 ps.setString(13, trace.clientIp)
