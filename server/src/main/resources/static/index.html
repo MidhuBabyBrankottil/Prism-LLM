@@ -3,87 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrismLLM | FinOps & Observability Proxy</title>
+  <title>PrismLLM | Material 3 FinOps & Observability</title>
+  <!-- Material 3 Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Google+Sans+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
+    /* Material Design 3 (M3) Light Theme Tokens */
     :root {
-      --bg-base: #090d16;
-      --bg-surface: rgba(18, 24, 38, 0.7);
-      --bg-surface-hover: rgba(28, 36, 56, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(99, 102, 241, 0.3);
-      --text-primary: #f1f5f9;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
-      --accent-primary: #6366f1;
-      --accent-emerald: #10b981;
-      --accent-cyan: #06b6d4;
-      --accent-amber: #f59e0b;
-      --accent-rose: #f43f5e;
-      --accent-purple: #a855f7;
+      --md-sys-color-background: #ffffff;
+      --md-sys-color-surface: #ffffff;
+      --md-sys-color-surface-dim: #f8fafc;
+      --md-sys-color-surface-container-low: #f8fafd;
+      --md-sys-color-surface-container: #f0f4f9;
+      --md-sys-color-surface-container-high: #e9eef6;
+      
+      --md-sys-color-primary: #0b57d0;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #d3e3fd;
+      --md-sys-color-on-primary-container: #041e49;
+      
+      --md-sys-color-secondary: #00639b;
+      --md-sys-color-secondary-container: #c2e7ff;
+      --md-sys-color-on-secondary-container: #001d35;
+      
+      --md-sys-color-tertiary: #6750a4;
+      --md-sys-color-tertiary-container: #eaddff;
+      --md-sys-color-on-tertiary-container: #21005d;
+      
+      --md-sys-color-outline: #c4c7c5;
+      --md-sys-color-outline-variant: #e0e3e1;
+      
+      --md-sys-color-on-surface: #1f1f1f;
+      --md-sys-color-on-surface-variant: #444746;
+      --md-sys-color-on-surface-muted: #747775;
+      
+      --md-sys-color-success: #137333;
+      --md-sys-color-success-container: #c4eed0;
+      --md-sys-color-on-success-container: #072711;
+      
+      --md-sys-color-error: #b3261e;
+      --md-sys-color-error-container: #f9dedc;
+      --md-sys-color-on-error-container: #410e0b;
+
+      --md-sys-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+      --md-sys-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+      --md-sys-shape-corner-small: 8px;
+      --md-sys-shape-corner-medium: 12px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-full: 9999px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Google Sans Text', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
-      background-color: var(--bg-base);
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
-      color: var(--text-primary);
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-surface);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
+    /* M3 Top App Bar */
     header {
-      border-bottom: 1px solid var(--border-subtle);
-      background: rgba(9, 13, 22, 0.8);
-      backdrop-filter: blur(12px);
+      background-color: var(--md-sys-color-surface);
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
       position: sticky;
       top: 0;
       z-index: 50;
-      padding: 0.85rem 2rem;
+      padding: 0.75rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .logo-badge {
-      background: linear-gradient(135deg, #6366f1, #a855f7);
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, var(--md-sys-color-primary), #4285f4);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--md-sys-shape-corner-medium);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 2px 6px rgba(11, 87, 208, 0.25);
     }
 
     .brand-text h1 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(to right, #ffffff, #cbd5e1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface);
+      letter-spacing: -0.01em;
     }
 
     .brand-text p {
       font-size: 0.75rem;
-      color: var(--text-secondary);
+      color: var(--md-sys-color-on-surface-variant);
+      font-weight: 400;
     }
 
     .header-actions {
@@ -92,68 +124,81 @@
       gap: 0.75rem;
     }
 
-    .pulse-pill {
-      display: flex;
+    /* M3 Assist Chips / Status Pills */
+    .m3-chip {
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      color: var(--accent-emerald);
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-success-container);
+      background-color: var(--md-sys-color-success-container);
+      border: 1px solid rgba(19, 115, 51, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--md-sys-shape-corner-full);
     }
 
     .pulse-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: var(--accent-emerald);
-      box-shadow: 0 0 8px var(--accent-emerald);
-      animation: pulse 2s infinite;
+      background-color: var(--md-sys-color-success);
+      animation: m3-pulse 2s infinite ease-in-out;
     }
 
-    @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-      100% { opacity: 1; transform: scale(1); }
+    @keyframes m3-pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
     }
 
-    .btn {
+    /* M3 Buttons */
+    .m3-btn {
       cursor: pointer;
       font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: 1px solid transparent;
-      transition: all 0.15s ease;
+      font-weight: 500;
+      padding: 0.55rem 1.15rem;
+      border-radius: var(--md-sys-shape-corner-full);
+      border: none;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
+      outline: none;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #4f46e5);
-      color: white;
-      border-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+    .m3-btn-filled {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #4f46e5, #4338ca);
-      transform: translateY(-1px);
+    .m3-btn-filled:hover {
+      background-color: #0842a0;
+      box-shadow: var(--md-sys-elevation-1);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
+    .m3-btn-tonal {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .m3-btn-tonal:hover {
+      background-color: #a8dbff;
     }
 
+    .m3-btn-outlined {
+      background-color: transparent;
+      color: var(--md-sys-color-primary);
+      border: 1px solid var(--md-sys-color-outline);
+    }
+
+    .m3-btn-outlined:hover {
+      background-color: var(--md-sys-color-surface-container-low);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    /* Main Container */
     main {
       padding: 1.75rem 2rem;
       max-width: 1440px;
@@ -161,59 +206,62 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 1.75rem;
+      gap: 1.5rem;
+      background-color: var(--md-sys-color-background);
     }
 
-    /* KPI Grid */
+    /* M3 Cards Grid */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
 
-    .kpi-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
+    .m3-card {
+      background: var(--md-sys-color-surface);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-large);
       padding: 1.25rem;
-      backdrop-filter: blur(8px);
+      box-shadow: var(--md-sys-elevation-1);
+      transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1), border-color 0.2s;
       position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s;
     }
 
-    .kpi-card:hover {
-      border-color: var(--border-accent);
+    .m3-card:hover {
+      box-shadow: var(--md-sys-elevation-2);
+      border-color: #b0c4de;
     }
 
     .kpi-title {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface-variant);
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .kpi-value {
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--md-sys-color-on-surface);
+      letter-spacing: -0.02em;
     }
 
     .kpi-sub {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.4rem;
       display: flex;
       align-items: center;
       gap: 0.3rem;
     }
 
-    .kpi-sub.positive { color: var(--accent-emerald); }
-    .kpi-sub.cyan { color: var(--accent-cyan); }
-    .kpi-sub.purple { color: var(--accent-purple); }
+    .kpi-sub.positive { color: var(--md-sys-color-success); }
+    .kpi-sub.primary { color: var(--md-sys-color-primary); }
+    .kpi-sub.tertiary { color: var(--md-sys-color-tertiary); }
 
-    /* Dashboard Layout Columns */
+    /* Dashboard Layout */
     .dashboard-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -221,17 +269,15 @@
     }
 
     @media (max-width: 1024px) {
-      .dashboard-row {
-        grid-template-columns: 1fr;
-      }
+      .dashboard-row { grid-template-columns: 1fr; }
     }
 
-    .panel {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1.25rem;
-      backdrop-filter: blur(8px);
+    .m3-panel {
+      background-color: var(--md-sys-color-surface);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-large);
+      padding: 1.35rem;
+      box-shadow: var(--md-sys-elevation-1);
     }
 
     .panel-header {
@@ -240,30 +286,42 @@
       align-items: center;
       margin-bottom: 1rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
     }
 
     .panel-header h2 {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--md-sys-color-on-surface);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .badge {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
+    /* M3 Badges */
+    .m3-badge {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--md-sys-shape-corner-small);
     }
 
-    .badge-primary { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
-    .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-    .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .m3-badge-primary {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+    }
 
-    /* Bars / Breakdown List */
+    .m3-badge-secondary {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+
+    .m3-badge-tertiary {
+      background-color: var(--md-sys-color-tertiary-container);
+      color: var(--md-sys-color-on-tertiary-container);
+    }
+
+    /* Progress & Breakdown Bars */
     .bar-list {
       display: flex;
       flex-direction: column;
@@ -273,34 +331,45 @@
     .bar-item {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
     .bar-info {
       display: flex;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
-    .bar-label { font-weight: 500; color: var(--text-primary); }
-    .bar-val { color: var(--text-secondary); }
+    .bar-label {
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .bar-val {
+      color: var(--md-sys-color-on-surface-variant);
+      font-weight: 500;
+    }
 
     .bar-track {
       width: 100%;
-      height: 7px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 999px;
+      height: 8px;
+      background-color: var(--md-sys-color-surface-container);
+      border-radius: var(--md-sys-shape-corner-full);
       overflow: hidden;
     }
 
     .bar-fill {
       height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #6366f1, #a855f7);
-      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: var(--md-sys-shape-corner-full);
+      background: linear-gradient(90deg, #0b57d0, #4285f4);
+      transition: width 0.4s ease;
     }
 
-    /* Latency Ladder */
+    .bar-fill.secondary {
+      background: linear-gradient(90deg, #137333, #34a853);
+    }
+
+    /* Latency Percentile Cards */
     .ladder-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -309,205 +378,215 @@
     }
 
     .ladder-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 0.75rem;
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-medium);
+      padding: 0.85rem;
       text-align: center;
     }
 
     .ladder-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      font-weight: 600;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface-variant);
+      text-transform: uppercase;
     }
 
     .ladder-val {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      margin-top: 0.2rem;
-      color: var(--accent-cyan);
+      margin-top: 0.25rem;
+      color: var(--md-sys-color-primary);
     }
 
-    /* Table Styles */
+    /* M3 Outlined Inputs */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    input, select, textarea {
+      background-color: var(--md-sys-color-surface);
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: var(--md-sys-shape-corner-small);
+      color: var(--md-sys-color-on-surface);
+      padding: 0.55rem 0.85rem;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--md-sys-color-primary);
+      box-shadow: 0 0 0 2px rgba(11, 87, 208, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      height: 85px;
+    }
+
+    .result-view {
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-medium);
+      padding: 0.85rem;
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--md-sys-color-on-surface);
+      overflow-y: auto;
+      max-height: 200px;
+      white-space: pre-wrap;
+    }
+
+    /* M3 Data Table */
     .table-container {
       overflow-x: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border-subtle);
+      border-radius: var(--md-sys-shape-corner-medium);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     th {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 0.75rem 1rem;
-      color: var(--text-secondary);
+      background-color: var(--md-sys-color-surface-container);
+      padding: 0.85rem 1rem;
+      color: var(--md-sys-color-on-surface-variant);
       font-weight: 600;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
       white-space: nowrap;
     }
 
     td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      color: var(--text-primary);
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      color: var(--md-sys-color-on-surface);
       white-space: nowrap;
     }
 
     tbody tr:hover {
-      background: rgba(255, 255, 255, 0.02);
+      background-color: var(--md-sys-color-surface-container-low);
     }
 
     .pill-tag {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.08);
-      font-family: monospace;
-    }
-
-    /* Simulator Modal / Box */
-    .playground-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .playground-box { grid-template-columns: 1fr; }
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      margin-bottom: 0.75rem;
-    }
-
-    label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
+      font-size: 0.72rem;
       font-weight: 500;
-    }
-
-    input, select, textarea {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      color: var(--text-primary);
-      padding: 0.5rem 0.75rem;
-      font-size: 0.82rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent-primary);
-    }
-
-    textarea { resize: vertical; height: 80px; }
-
-    .result-view {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--md-sys-shape-corner-small);
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface-variant);
       font-family: monospace;
-      font-size: 0.75rem;
-      color: #a5f3fc;
-      overflow-y: auto;
-      max-height: 180px;
-      white-space: pre-wrap;
+    }
+
+    .m3-chip-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      background-color: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
     }
   </style>
 </head>
 <body>
+  <!-- M3 Top App Bar -->
   <header>
     <div class="brand">
       <div class="logo-badge">P</div>
       <div class="brand-text">
         <h1>PrismLLM</h1>
-        <p>FinOps & Observability Proxy Gateway</p>
+        <p>Material 3 FinOps & Observability Proxy</p>
       </div>
     </div>
     <div class="header-actions">
-      <div class="pulse-pill">
+      <div class="m3-chip">
         <div class="pulse-dot"></div>
-        <span>Interceptor Live</span>
+        <span>Gateway Online</span>
       </div>
-      <button class="btn btn-secondary" onclick="seedDemoData()">⚡ Seed Demo Data</button>
-      <button class="btn btn-primary" onclick="triggerTestCall()">▶ Send Test Trace</button>
+      <button class="m3-btn m3-btn-tonal" onclick="seedDemoData()">⚡ Seed Dataset</button>
+      <button class="m3-btn m3-btn-filled" onclick="triggerTestCall()">▶ Send Test Trace</button>
     </div>
   </header>
 
   <main>
-    <!-- Top KPI Cards -->
+    <!-- M3 KPI Metrics Grid -->
     <section class="kpi-grid">
-      <div class="kpi-card">
+      <div class="m3-card">
         <div class="kpi-title">Total Spend (USD)</div>
         <div class="kpi-value" id="kpi-spend">$0.00</div>
         <div class="kpi-sub positive" id="kpi-cache-savings">⚡ $0.00 cache savings</div>
       </div>
-      <div class="kpi-card">
+      <div class="m3-card">
         <div class="kpi-title">Total Tokens</div>
         <div class="kpi-value" id="kpi-tokens">0</div>
-        <div class="kpi-sub" id="kpi-prompt-completion">Prompt: 0 | Output: 0</div>
+        <div class="kpi-sub" id="kpi-prompt-completion" style="color: var(--md-sys-color-on-surface-variant);">In: 0 | Out: 0</div>
       </div>
-      <div class="kpi-card">
+      <div class="m3-card">
         <div class="kpi-title">Avg TTFT (Streaming)</div>
         <div class="kpi-value" id="kpi-ttft">0 ms</div>
-        <div class="kpi-sub cyan">Time to first token</div>
+        <div class="kpi-sub primary">Time to first token</div>
       </div>
-      <div class="kpi-card">
+      <div class="m3-card">
         <div class="kpi-title">P99 Latency</div>
         <div class="kpi-value" id="kpi-p99">0 ms</div>
-        <div class="kpi-sub" id="kpi-avg-duration">Avg: 0 ms</div>
+        <div class="kpi-sub tertiary" id="kpi-avg-duration">Avg: 0 ms</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-title">Interceptions</div>
+      <div class="m3-card">
+        <div class="kpi-title">Total Invocations</div>
         <div class="kpi-value" id="kpi-requests">0</div>
         <div class="kpi-sub positive">100% Non-blocking</div>
       </div>
     </section>
 
-    <!-- Mid Section: Cost Attribution & Latency Ladder -->
+    <!-- Mid Section: Cost Attribution & Feature Breakdown -->
     <div class="dashboard-row">
       <!-- Cost by Model -->
-      <div class="panel">
+      <div class="m3-panel">
         <div class="panel-header">
           <h2><span>📊</span> Cost Attribution by Model</h2>
-          <span class="badge badge-primary" id="model-count-badge">0 Models</span>
+          <span class="m3-badge m3-badge-primary" id="model-count-badge">0 Models</span>
         </div>
         <div class="bar-list" id="model-breakdown-list">
-          <div style="color: var(--text-muted); font-size: 0.8rem;">Loading breakdown...</div>
+          <div style="color: var(--md-sys-color-on-surface-muted); font-size: 0.82rem;">Loading model analytics...</div>
         </div>
       </div>
 
       <!-- Cost by Feature Tag -->
-      <div class="panel">
+      <div class="m3-panel">
         <div class="panel-header">
           <h2><span>🏷️</span> Spend by Feature Tag</h2>
-          <span class="badge badge-emerald" id="feature-count-badge">0 Features</span>
+          <span class="m3-badge m3-badge-secondary" id="feature-count-badge">0 Features</span>
         </div>
         <div class="bar-list" id="feature-breakdown-list">
-          <div style="color: var(--text-muted); font-size: 0.8rem;">Loading features...</div>
+          <div style="color: var(--md-sys-color-on-surface-muted); font-size: 0.82rem;">Loading feature tags...</div>
         </div>
       </div>
     </div>
 
-    <!-- Latency & FinOps Optimization Row -->
+    <!-- Bottom Row: Latency Percentiles & Interactive Playground -->
     <div class="dashboard-row">
       <!-- Latency Distribution -->
-      <div class="panel">
+      <div class="m3-panel">
         <div class="panel-header">
           <h2><span>⏱️</span> Latency Percentile Ladder</h2>
-          <span class="badge badge-amber">Quantile Analysis</span>
+          <span class="m3-badge m3-badge-tertiary">Quantile Analysis</span>
         </div>
         <div class="ladder-grid">
           <div class="ladder-card">
@@ -527,18 +606,18 @@
             <div class="ladder-val" id="lat-p99">0 ms</div>
           </div>
         </div>
-        <div style="margin-top: 1rem; font-size: 0.78rem; color: var(--text-secondary);" id="anomaly-container">
-          <!-- Anomaly badge appears here if any -->
+        <div style="margin-top: 1rem; font-size: 0.82rem;" id="anomaly-container">
+          <!-- Anomaly badge appears here -->
         </div>
       </div>
 
-      <!-- Live Proxy Playground -->
-      <div class="panel">
+      <!-- Playground -->
+      <div class="m3-panel">
         <div class="panel-header">
           <h2><span>🧪</span> Interactive Proxy Playground</h2>
-          <span class="badge badge-primary">POST /v1/chat/completions</span>
+          <span class="m3-badge m3-badge-primary">POST /v1/chat/completions</span>
         </div>
-        <div class="playground-box">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <div class="form-group">
               <label>Model</label>
@@ -552,20 +631,20 @@
             </div>
             <div class="form-group">
               <label>Feature Tag (X-Feature-Tag)</label>
-              <input type="text" id="play-feature" value="checkout-agent" />
+              <input type="text" id="play-feature" value="checkout-copilot" />
             </div>
             <div class="form-group">
               <label>Prompt</label>
-              <textarea id="play-prompt">How do Kotlin Flows handle backpressure in streaming architectures?</textarea>
+              <textarea id="play-prompt">How does Kotlin Coroutines handle structured concurrency?</textarea>
             </div>
-            <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="sendCustomPlaygroundCall()">
+            <button class="m3-btn m3-btn-filled" style="width: 100%; justify-content: center;" onclick="sendCustomPlaygroundCall()">
               Intercept & Inspect
             </button>
           </div>
           <div>
             <div class="form-group">
               <label>Intercepted Response Preview</label>
-              <div class="result-view" id="play-result">// Response output and token metadata will appear here...</div>
+              <div class="result-view" id="play-result">// Intercepted JSON telemetry will appear here...</div>
             </div>
           </div>
         </div>
@@ -573,29 +652,29 @@
     </div>
 
     <!-- Live Telemetry Stream Table -->
-    <div class="panel">
+    <div class="m3-panel">
       <div class="panel-header">
         <h2><span>⚡</span> Real-Time Invocation Telemetry (Live Stream)</h2>
-        <span class="badge badge-emerald" id="trace-count-badge">Recent 50</span>
+        <span class="m3-badge m3-badge-secondary" id="trace-count-badge">Recent Traces</span>
       </div>
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Time</th>
+              <th>Timestamp</th>
               <th>Model</th>
               <th>Feature Tag</th>
               <th>User</th>
-              <th>Tokens (In / Out)</th>
+              <th>Tokens (Prompt / Output)</th>
               <th>Duration</th>
               <th>TTFT</th>
-              <th>Cost ($)</th>
+              <th>Est. Cost</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody id="trace-table-body">
             <tr>
-              <td colspan="9" style="text-align: center; color: var(--text-muted);">Listening for traces...</td>
+              <td colspan="9" style="text-align: center; color: var(--md-sys-color-on-surface-muted);">Listening for traces...</td>
             </tr>
           </tbody>
         </table>
@@ -630,7 +709,7 @@
         document.getElementById('model-count-badge').innerText = `${list.length} Models`;
         const container = document.getElementById('model-breakdown-list');
         if (!list || list.length === 0) {
-          container.innerHTML = '<div style="color:var(--text-muted)">No model data yet.</div>';
+          container.innerHTML = '<div style="color:var(--md-sys-color-on-surface-muted)">No model data yet.</div>';
           return;
         }
         container.innerHTML = list.map(item => `
@@ -656,7 +735,7 @@
         document.getElementById('feature-count-badge').innerText = `${list.length} Tags`;
         const container = document.getElementById('feature-breakdown-list');
         if (!list || list.length === 0) {
-          container.innerHTML = '<div style="color:var(--text-muted)">No feature tags yet.</div>';
+          container.innerHTML = '<div style="color:var(--md-sys-color-on-surface-muted)">No feature tags yet.</div>';
           return;
         }
         container.innerHTML = list.map(item => `
@@ -666,7 +745,7 @@
               <span class="bar-val">$${item.spendUsd.toFixed(4)} (${item.percentageOfTotal.toFixed(1)}%)</span>
             </div>
             <div class="bar-track">
-              <div class="bar-fill" style="width: ${Math.max(item.percentageOfTotal, 3)}%; background: linear-gradient(90deg, #10b981, #06b6d4);"></div>
+              <div class="bar-fill secondary" style="width: ${Math.max(item.percentageOfTotal, 3)}%"></div>
             </div>
           </div>
         `).join('');
@@ -695,12 +774,12 @@
         const container = document.getElementById('anomaly-container');
         if (alerts && alerts.length > 0) {
           container.innerHTML = `
-            <div style="background: rgba(244,63,94,0.15); border: 1px solid rgba(244,63,94,0.3); border-radius: 6px; padding: 0.5rem 0.75rem; color: #fecdd3;">
-              <strong>⚠️ Anomaly Detected (${alerts.length}):</strong> ${alerts[0].message}
+            <div style="background-color: var(--md-sys-color-error-container); border: 1px solid rgba(179,38,30,0.2); border-radius: 8px; padding: 0.65rem 0.85rem; color: var(--md-sys-color-on-error-container);">
+              <strong>⚠️ Anomaly Alert (${alerts.length}):</strong> ${alerts[0].message}
             </div>
           `;
         } else {
-          container.innerHTML = `<span style="color: var(--accent-emerald);">✔ All latencies & token burns within normal statistical distribution.</span>`;
+          container.innerHTML = `<span style="color: var(--md-sys-color-success); font-weight: 500;">✔ All latencies & token burns within normal statistical bounds.</span>`;
         }
       } catch (err) {
         console.error(err);
@@ -713,7 +792,7 @@
         const traces = await res.json();
         const tbody = document.getElementById('trace-table-body');
         if (!traces || traces.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--text-muted);">No invocations recorded yet.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; color: var(--md-sys-color-on-surface-muted);">No invocations recorded yet.</td></tr>';
           return;
         }
 
@@ -722,15 +801,15 @@
           const ttftStr = t.timeToFirstTokenMs ? `${t.timeToFirstTokenMs} ms` : '-';
           return `
             <tr>
-              <td style="color: var(--text-muted); font-size: 0.75rem;">${timeStr}</td>
-              <td><strong>${t.model}</strong></td>
+              <td style="color: var(--md-sys-color-on-surface-muted); font-size: 0.78rem;">${timeStr}</td>
+              <td><strong style="color: var(--md-sys-color-primary);">${t.model}</strong></td>
               <td><span class="pill-tag">${t.featureTag || 'default'}</span></td>
-              <td style="color: var(--text-secondary);">${t.userTag || 'anonymous'}</td>
-              <td>${t.promptTokens} / <span style="color:#a5f3fc">${t.completionTokens}</span></td>
+              <td style="color: var(--md-sys-color-on-surface-variant);">${t.userTag || 'anonymous'}</td>
+              <td>${t.promptTokens} / <strong style="color: #0b57d0;">${t.completionTokens}</strong></td>
               <td>${t.durationMs} ms</td>
               <td>${ttftStr}</td>
-              <td style="color: #a7f3d0; font-weight: 600;">$${t.estimatedCostUsd.toFixed(5)}</td>
-              <td><span class="badge badge-emerald">200 OK</span></td>
+              <td style="color: var(--md-sys-color-success); font-weight: 600;">$${t.estimatedCostUsd.toFixed(5)}</td>
+              <td><span class="m3-chip-status">200 OK</span></td>
             </tr>
           `;
         }).join('');
@@ -746,8 +825,8 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             model: 'gpt-4o',
-            featureTag: 'quick-test',
-            prompt: 'Explain high concurrency in Kotlin.'
+            featureTag: 'm3-test',
+            prompt: 'Explain Material 3 design principles in modern web apps.'
           })
         });
         refreshAll();
@@ -760,7 +839,7 @@
       try {
         const res = await fetch(`${API_BASE}/api/simulator/seed`, { method: 'POST' });
         const data = await res.json();
-        alert(`Successfully injected ${data.seeded} realistic traces across multiple models!`);
+        alert(`Successfully seeded ${data.seeded} traces!`);
         refreshAll();
       } catch (err) {
         alert('Seeding error: ' + err.message);
