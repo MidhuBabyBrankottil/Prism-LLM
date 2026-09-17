@@ -17,7 +17,13 @@ As engineering teams integrate generative AI into production, they face three cr
 2. **Streaming Latency Spikes:** High Time-To-First-Token (TTFT) and tail latency degradation ($p95/p99$) impacting user experience.
 3. **Black Box Invocations:** Inability to inspect prompt sizes, completion ratios, and cache leverage without adding heavy latency to client calls.
 
-**PrismLLM** solves this by sitting between your applications and LLM providers. Using **Kotlin Coroutines and Flow**, it taps into request/response streams non-blockingly, aggregates analytical rollups, and serves a live dark-mode FinOps dashboard.
+**PrismLLM** solves this by sitting between your applications and LLM providers. Using **Kotlin Coroutines and Flow**, it taps into request/response streams non-blockingly, aggregates analytical rollups, and serves a modern Material 3 FinOps dashboard.
+
+---
+
+## 📸 Material 3 Dashboard Preview
+
+![PrismLLM Material 3 Dashboard](docs/screenshots/dashboard_preview.png)
 
 ---
 
