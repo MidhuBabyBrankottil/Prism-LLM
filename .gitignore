@@ -1,0 +1,20 @@
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+*.class
+*.log
+*.sqlite
+*.db
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
